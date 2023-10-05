@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:wts_test_app/categories/pages/categories_page.dart';
-import 'package:wts_test_app/products/pages/products_page.dart';
+import 'package:wts_test_app/categories/pages/categories_list_page.dart';
+import 'package:wts_test_app/products/pages/products_list_page.dart';
 
 Future main() async {
   await dotenv.load(fileName: ".env");
@@ -14,15 +14,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'eShop',
-        initialRoute: '/',
-        theme: ThemeData(
-          useMaterial3: true,
-        ),
-        debugShowCheckedModeBanner: false,
-        routes: {
-          CategoriesPage.routeName: (context) => const CategoriesPage(),
-          ProductsPage.routeName: (context) => const ProductsPage(),
-        });
+      title: 'eShop',
+      theme: ThemeData(
+        useMaterial3: true,
+      ),
+      debugShowCheckedModeBanner: false,
+      initialRoute: CategoriesListPage.routeName,
+      routes: {
+        CategoriesListPage.routeName: (context) => const CategoriesListPage(),
+        ProductsListPage.routeName: (context) => const ProductsListPage(),
+      },
+    );
   }
 }

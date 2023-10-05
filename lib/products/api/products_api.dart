@@ -1,19 +1,14 @@
-import 'package:wts_test_app/api/base_api.dart';
-
-const categoryListApi = '/api/common/category/list';
+import 'package:wts_test_app/core/api/base_api.dart';
+import 'package:wts_test_app/products/models/product.dart';
 
 class ProductsApi extends BaseApi {
-  void getProducts(String id) async {
-    final data = await get(categoryListApi, {});
+  Future<List<Product>> getProducts(int id, int offset) async {
+    final response = await get('common/product/list', params: {
+      'categoryId': id.toString(),
+      'offset': offset.toString(),
+    });
+    final List<dynamic> data = response.data;
 
-    // ignore: avoid_print
-    print(data);
-
-    // if (response['meta']['success']) {
-    //   final List<dynamic> data = response['data']['categories'];
-    //   return data.map<Catalog>((e) => Catalog.fromJson(e)).toList();
-    // } else {
-    //   throw Exception('Failed to fetch categories');
-    // }
+    return data.map((e) => Product.fromJson(e)).toList();
   }
 }
