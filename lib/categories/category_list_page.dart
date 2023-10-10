@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:wts_test_app/categories/models/category.dart';
-import 'package:wts_test_app/products/pages/products_list_page.dart';
+import 'package:wts_test_app/categories/widgets/category_item.dart';
+import 'package:wts_test_app/products/products_list_page.dart';
 
-import '../widgets/category_item.dart';
-
-class CategoriesListPage extends StatelessWidget {
-  const CategoriesListPage({super.key});
+class CategoryListPage extends StatelessWidget {
+  const CategoryListPage({super.key});
 
   static const routeName = "/categories";
 
@@ -28,8 +27,8 @@ class CategoriesListPage extends StatelessWidget {
                   onTap: () {
                     Navigator.pushNamed(
                       context,
-                      ProductsListPage.routeName,
-                      arguments: ProductsPageArgs(
+                      ProductListPage.routeName,
+                      arguments: ProductListPageArgs(
                         category.title,
                         category.categoryId,
                       ),

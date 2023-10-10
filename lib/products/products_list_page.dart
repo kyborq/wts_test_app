@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:wts_test_app/products/models/product.dart';
 import 'package:wts_test_app/products/widgets/product_item.dart';
 
-class ProductsPageArgs {
+class ProductListPageArgs {
   final String title;
   final int id;
 
-  ProductsPageArgs(this.title, this.id);
+  ProductListPageArgs(this.title, this.id);
 }
 
-class ProductsListPage extends StatefulWidget {
-  const ProductsListPage({super.key});
+class ProductListPage extends StatefulWidget {
+  const ProductListPage({super.key});
 
   static const routeName = "/products";
 
   @override
-  State<ProductsListPage> createState() => _ProductsListPageState();
+  State<ProductListPage> createState() => _ProductListPageState();
 }
 
-class _ProductsListPageState extends State<ProductsListPage> {
+class _ProductListPageState extends State<ProductListPage> {
   late int categoryId;
   late int offset;
   late String title;
@@ -32,7 +32,8 @@ class _ProductsListPageState extends State<ProductsListPage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    final args = ModalRoute.of(context)!.settings.arguments as ProductsPageArgs;
+    final args =
+        ModalRoute.of(context)!.settings.arguments as ProductListPageArgs;
 
     categoryId = args.id;
     title = args.title;
