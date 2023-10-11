@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:wts_test_app/categories/api/categories_api.dart';
 
 part 'category.g.dart';
 
@@ -14,12 +13,6 @@ class Category {
   int categoryId;
   String title;
   String imageUrl;
-
-  static final _categoriesApi = CategoriesApi();
-
-  static Future<List<Category>> getCategories() async {
-    return await _categoriesApi.getList();
-  }
 
   factory Category.fromJson(Map<String, dynamic> json) =>
       _$CategoryFromJson(json);
