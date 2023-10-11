@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wts_test_app/categories/models/category.dart';
 import 'package:wts_test_app/categories/widgets/category_item.dart';
-import 'package:wts_test_app/products/products_list_page.dart';
+import 'package:wts_test_app/products/product_list_page.dart';
 
 class CategoryListPage extends StatelessWidget {
   const CategoryListPage({super.key});
