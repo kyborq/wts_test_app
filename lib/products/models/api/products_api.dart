@@ -1,5 +1,5 @@
 import 'package:wts_test_app/core/api/base_api.dart';
-import 'package:wts_test_app/products/models/product.dart';
+import 'package:wts_test_app/products/models/entities/product.dart';
 
 class ProductsApi extends BaseApi {
   Future<List<Product>> getProducts(int id, int offset) async {

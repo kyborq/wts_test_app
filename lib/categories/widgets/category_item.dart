@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wts_test_app/categories/models/category.dart';
+import 'package:wts_test_app/categories/models/entities/category.dart';
 import 'package:wts_test_app/core/widgets/network_image_fallback.dart';
 
 class CategoryItem extends StatelessWidget {

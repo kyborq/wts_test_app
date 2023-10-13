@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wts_test_app/core/widgets/network_image_fallback.dart';
-import 'package:wts_test_app/products/models/product.dart';
+import 'package:wts_test_app/products/models/entities/product.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({

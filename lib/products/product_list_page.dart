@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wts_test_app/products/models/product.dart';
-import 'package:wts_test_app/products/product_list_provider.dart';
+import 'package:wts_test_app/products/models/entities/product.dart';
+import 'package:wts_test_app/products/models/product_list_provider.dart';
 import 'package:wts_test_app/products/widgets/product_item.dart';
 
 class ProductListPageArgs {
@@ -24,7 +24,7 @@ class _ProductListPageState extends State<ProductListPage> {
   late int categoryId;
   late ProductListProvider provider;
 
-  final _controller = ScrollController();
+  final controller = ScrollController();
 
   @override
   void didChangeDependencies() {
@@ -39,10 +39,10 @@ class _ProductListPageState extends State<ProductListPage> {
     provider = ProductListProvider(categoryId: categoryId);
     provider.loadMoreItems();
 
-    _controller.addListener(() {
+    controller.addListener(() {
       final hasReachedEnd =
-          _controller.offset >= _controller.position.maxScrollExtent - 300 &&
-              !_controller.position.outOfRange;
+          controller.offset >= controller.position.maxScrollExtent - 300 &&
+              !controller.position.outOfRange;
       if (!hasReachedEnd) return;
 
       provider.loadMoreItems();
@@ -51,7 +51,7 @@ class _ProductListPageState extends State<ProductListPage> {
 
   @override
   void dispose() {
-    _controller.dispose();
+    controller.dispose();
     provider.dispose();
     super.dispose();
   }
@@ -80,7 +80,7 @@ class _ProductListPageState extends State<ProductListPage> {
             itemBuilder: (context, index) => ProductItem(
               product: products[index],
             ),
-            controller: _controller,
+            controller: controller,
           );
         },
       ),

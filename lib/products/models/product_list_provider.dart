@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wts_test_app/products/api/products_api.dart';
-import 'package:wts_test_app/products/models/product.dart';
+import 'package:wts_test_app/products/models/api/products_api.dart';
+import 'package:wts_test_app/products/models/entities/product.dart';
 
 class ProductListProvider extends ValueNotifier<List<Product>> {
   ProductListProvider({required this.categoryId}) : super([]);

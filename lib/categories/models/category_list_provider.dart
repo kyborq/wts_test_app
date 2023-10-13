@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wts_test_app/categories/api/categories_api.dart';
-import 'package:wts_test_app/categories/models/category.dart';
+import 'package:wts_test_app/categories/models/api/categories_api.dart';
+import 'package:wts_test_app/categories/models/entities/category.dart';
 
 class CategoryListProvider extends ValueNotifier<List<Category>> {
   CategoryListProvider() : super([]);
