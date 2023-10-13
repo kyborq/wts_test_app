@@ -6,26 +6,29 @@ class ProductListProvider extends ValueNotifier<List<Product>> {
   ProductListProvider({required this.categoryId}) : super([]);
 
   ProductsApi api = ProductsApi();
-  int offset = 0;
+
   int categoryId;
   bool isLoading = false;
+  bool isLoadedAll = false;
 
   Future<void> loadMoreItems() async {
-    if (isLoading) return;
+    if (isLoading || isLoadedAll) return;
 
     isLoading = true;
 
-    List<Product> products = await api.getProducts(categoryId, offset);
-    value = [...value, ...products];
+    List<Product> products = await api.getProducts(categoryId, value.length);
+    value.addAll(products);
+
     isLoading = false;
+    isLoadedAll = true;
 
     notifyListeners();
-    offset += products.length;
   }
 
   Future<void> reload() async {
+    if (isLoading) return;
+
     value.clear();
-    offset = 0;
     notifyListeners();
     await loadMoreItems();
   }
